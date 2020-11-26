@@ -5,6 +5,6 @@ BEGIN
 	SET NOCOUNT ON;
 
 	SELECT [Id], [Title], [Description], [Price]
-	FROM   DBO.Food;
-
+	FROM   [dbo].[Food]
+	
 END
