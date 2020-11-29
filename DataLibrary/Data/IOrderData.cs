@@ -1,4 +1,4 @@
-﻿using DataLibrary.Model;
+﻿using DataLibrary.Models;
 using System.Threading.Tasks;
 
 namespace DataLibrary.Data

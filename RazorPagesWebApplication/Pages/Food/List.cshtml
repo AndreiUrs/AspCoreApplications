@@ -1,0 +1,28 @@
+﻿@page
+@model RazorPagesWebApplication.Pages.Food.ListModel
+@{
+    ViewData["Title"] = "Food";
+}
+
+<h1>Welcome to Totoro's dinner!</h1>
+<h3>This is our menu:</h3>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach(var foodItem in Model.FoodList)
+        {
+            <tr>
+                <td>@foodItem.Title</td>
+                <td>@foodItem.Description</td>
+                <td>@foodItem.Price</td>
+            </tr>
+        }
+    </tbody>
+</table>

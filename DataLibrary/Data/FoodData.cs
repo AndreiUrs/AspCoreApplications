@@ -1,5 +1,5 @@
 ﻿using DataLibrary.Db;
-using DataLibrary.Model;
+using DataLibrary.Models;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
