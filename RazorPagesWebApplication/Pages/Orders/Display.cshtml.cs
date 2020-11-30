@@ -15,12 +15,17 @@ namespace RazorPagesWebApplication.Pages.Orders
         private readonly IFoodData _foodData;
         private readonly IOrderData _orderData;
         private readonly IMapper _mapper;
-
-        [BindProperty(SupportsGet = true)]
-        public int Id { get; set; }
+        
         public OrderViewModel Order { get; set; }
         public string ItemPurchased { get; set; }
-        
+
+
+        [BindProperty(SupportsGet = true)]
+        public int Id { get; set; }       
+        [BindProperty]
+        public OrderUpdateModel OrderUpdate { get; set; }
+
+
         public DisplayModel(IFoodData foodData, IOrderData orderData, IMapper mapper)
         {
             _foodData = foodData;
@@ -31,6 +36,18 @@ namespace RazorPagesWebApplication.Pages.Orders
         {
             await GetOrderToDisplay();
             return Page();
+        }
+
+        public async Task<IActionResult> OnPost()
+        {
+            if(ModelState.IsValid == false)
+            {
+                return Page();
+            }
+
+           await _orderData.UpdateOrder(OrderUpdate.Id, OrderUpdate.Name);
+
+            return RedirectToPage("./Display",new { OrderUpdate.Id });
         }
 
         private async Task GetOrderToDisplay()

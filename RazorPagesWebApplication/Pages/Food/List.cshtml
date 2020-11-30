@@ -21,7 +21,7 @@
             <tr>
                 <td>@foodItem.Title</td>
                 <td>@foodItem.Description</td>
-                <td>@foodItem.Price</td>
+                <td>@string.Format("{0:C}",foodItem.Price)</td>
             </tr>
         }
     </tbody>
